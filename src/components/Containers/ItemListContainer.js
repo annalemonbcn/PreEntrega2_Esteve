@@ -5,17 +5,17 @@ import { useParams } from "react-router-dom";
 const ItemListContainer = () => {
   // State
   const [data, setData] = useState([]);
-  const resultado = useParams();
-  console.log(resultado);
+  const result = useParams();
+  console.log(result);
 
   // Effects
   useEffect(() => {
-    if (resultado.id) {
+    if (result.id) {
       getProductsByCategory();
     } else {
       getAllProducts();
     }
-  }, [resultado.id]);
+  }, [result.id]);
 
   // Actions
   const getAllProducts = () => {
@@ -25,7 +25,7 @@ const ItemListContainer = () => {
   };
 
   const getProductsByCategory = () => {
-    fetch(`https://fakestoreapi.com/products/category/${resultado.id}`)
+    fetch(`https://fakestoreapi.com/products/category/${result.id}`)
       .then((res) => res.json())
       .then((json) => setData(json));
   };

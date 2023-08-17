@@ -1,19 +1,20 @@
-import ItemView from "./ItemView";
+import ItemGridView from "./ItemGridView";
 
 function ItemListView({ data }) {
   return (
-    <div className="flex flex-row flex-wrap lg:px-20 pt-5 lg:pt-16 mt-[70px]">
+    <div className="flex flex-row flex-wrap">
       {data.length === 0 ? (
         <p>Cargando</p>
       ) : (
         data.map((item, i) => {
           return (
-            <ItemView
+            <ItemGridView
               key={i}
               imgSrc={item.image}
               imgAlt={item.title}
               name={item.title}
               price={item.price}
+              url={i+1}
               // measures={item.measures}
               // path={item.path}
             />
