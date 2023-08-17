@@ -1,30 +1,37 @@
-import { useState, useEffect } from "react";
-import ItemListView from "../Views/ItemListView";
-import { ItemsList } from "../../models/Items_list";
+import { useEffect, useState } from "react";
+import ItemListView from "../ItemListView";
+import { useParams } from "react-router-dom";
 
-function ItemListContainer({ greeting }) {
-
+const ItemListContainer = () => {
   // State
   const [data, setData] = useState([]);
+  const resultado = useParams();
+  console.log(resultado);
 
   // Effects
   useEffect(() => {
-    getItems();
-  }, []);
+    if (resultado.id) {
+      getProductsByCategory();
+    } else {
+      getAllProducts();
+    }
+  }, [resultado.id]);
 
   // Actions
-  const getItems = () => {
-    /** Api request **/
-    // fetch("https://fakestoreapi.com/products")
-    //   .then((res) => res.json())
-    //   .then((json) => setData(json));
-    setTimeout(() => {
-      setData(ItemsList)
-    }, 2000);
-    console.log(ItemsList)
+  const getAllProducts = () => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => setData(json));
   };
 
-  return <ItemListView data={data} />;
-}
+  const getProductsByCategory = () => {
+    fetch(`https://fakestoreapi.com/products/category/${resultado.id}`)
+      .then((res) => res.json())
+      .then((json) => setData(json));
+  };
 
-export default ItemListContainer
+  // View
+  return <ItemListView data={data} />;
+};
+
+export default ItemListContainer;

@@ -1,4 +1,4 @@
-import ItemView from "../Item/ItemView";
+import ItemView from "./ItemView";
 
 function ItemListView({ data }) {
   return (
@@ -11,11 +11,11 @@ function ItemListView({ data }) {
             <ItemView
               key={i}
               imgSrc={item.image}
-              imgAlt={item.location}
-              name={item.location}
-              measures={item.measures}
-              path={item.path}
+              imgAlt={item.title}
+              name={item.title}
               price={item.price}
+              // measures={item.measures}
+              // path={item.path}
             />
           );
         })

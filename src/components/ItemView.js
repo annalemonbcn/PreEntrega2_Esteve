@@ -1,6 +1,6 @@
-import Cart from "../Cart";
+import Cart from "./svg/Cart";
 
-const ItemView = ({ imgSrc, imgAlt, name, price, measures, path }) => {
+const ItemView = ({ imgSrc, imgAlt, name, price }) => {
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 p-6 box-border hover:scale-110 transition duration-300 ease-in-out itemsContainer">
       <div className="bg-soft-grey w-full h-[400px] p-5 box-border">
@@ -12,7 +12,6 @@ const ItemView = ({ imgSrc, imgAlt, name, price, measures, path }) => {
       <div className="pb-5 px-4 mt-5">
         <a href="/">
           <h5 className="text-gray-700 italic ">{name}</h5>
-          <p className="text-sm text-gray-700">{measures}</p>
         </a>
         <div className="flex items-center justify-between mt-6">
           <span className="text-gray-500 font-bold text-lg">{price} €</span>
