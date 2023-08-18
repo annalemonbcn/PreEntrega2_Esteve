@@ -24,7 +24,7 @@ const ItemDetailView = ({ data }) => {
                 alt={data.title}
               />
             </div>
-            <div className="pt-2 px-5 lg:p-0" id="productInfo">
+            <div className="pt-2 lg:p-0" id="productInfo">
               <p className="font-bold">{data.category}</p>
               <p className="italic">{data.description}</p>
               <div className="flex justify-between items-center mt-8">
