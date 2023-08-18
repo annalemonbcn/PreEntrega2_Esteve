@@ -6,7 +6,6 @@ const ItemListContainer = () => {
   // State
   const [data, setData] = useState([]);
   const result = useParams();
-  console.log(result);
 
   // Effects
   useEffect(() => {

@@ -14,7 +14,7 @@ function ItemListView({ data }) {
               imgAlt={item.title}
               name={item.title}
               price={item.price}
-              url={i+1}
+              id={item.id}
               // measures={item.measures}
               // path={item.path}
             />
